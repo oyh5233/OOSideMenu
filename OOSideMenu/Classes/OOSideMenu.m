@@ -8,7 +8,7 @@
 
 #import "OOSideMenu.h"
 @implementation UIViewController (OOSideMenu)
-- (OOSideMenu *)ooSideMenuViewController
+- (OOSideMenu *)ooSideMenu
 {
     UIViewController *vCtrl = self.parentViewController;
     while(vCtrl) {
@@ -23,7 +23,7 @@
     return nil;
 }
 -(void)setSideMenuSide:(OOSideMenuSide)side{
-    self.ooSideMenuViewController.side=side;
+    self.ooSideMenu.side=side;
 }
 @end
 #pragma mark -
@@ -34,10 +34,10 @@ static CGFloat side_menu_center_right_Offset=64;
 static CGFloat side_menu_center_minimum_scale=0.8;
 static CGSize  side_menu_center_shadow_offset=(CGSize){0,0};
 static CGFloat side_menu_center_shadow_radius=5;
-static CGFloat side_menu_left_mininum_scale=0.8;
+static CGFloat side_menu_left_mininum_scale=0.9;
 static CGFloat side_menu_left_mininum_alpha=0.5;
 static CGFloat side_menu_left_parallax=0.15;
-static CGFloat side_menu_right_mininum_scale=0.8;
+static CGFloat side_menu_right_mininum_scale=0.9;
 static CGFloat side_menu_rigth_mininum_alpha=0.5;
 static CGFloat side_menu_right_parallax=0.15;
 @interface OOSideMenu ()<UIScrollViewDelegate>
@@ -293,20 +293,20 @@ static CGFloat side_menu_right_parallax=0.15;
     if (offset<=0&&offset>=-1) {
         CGFloat tran=(1.0+offset)/(1.0+side_menu_left_parallax)*width;
         CGAffineTransform transform1=CGAffineTransformTranslate(CGAffineTransformIdentity, tran, 0);
-        CGAffineTransform transform2=CGAffineTransformScale(CGAffineTransformIdentity,side_menu_left_mininum_scale+(1.0+offset)*(1.0-side_menu_left_mininum_scale), side_menu_left_mininum_scale+(1.0+offset)*(1.0-side_menu_left_mininum_scale));
+        CGAffineTransform transform2=CGAffineTransformScale(CGAffineTransformIdentity,side_menu_left_mininum_scale-offset*(1.0-side_menu_left_mininum_scale), side_menu_left_mininum_scale-offset*(1.0-side_menu_left_mininum_scale));
         CGAffineTransform transform=CGAffineTransformConcat(transform1, transform2);
         _leftViewController.view.transform=transform;
-        _leftViewController.view.alpha=side_menu_left_mininum_alpha+(1.0-side_menu_left_mininum_alpha)*(1.0+offset);
+        _leftViewController.view.alpha=side_menu_left_mininum_alpha-(1.0-side_menu_left_mininum_alpha)*offset;
     }
 }
 -(void)syncRightViewTransformWithOffset:(CGFloat)offset width:(CGFloat)width{
     if (offset>=0&&offset<=1) {
         CGFloat tran=-(1.0-offset)/(1.0+side_menu_right_parallax)*width;
         CGAffineTransform transform1=CGAffineTransformTranslate(CGAffineTransformIdentity, tran, 0);
-        CGAffineTransform transform2=CGAffineTransformScale(CGAffineTransformIdentity,side_menu_right_mininum_scale+(1.0-offset)*(1.0-side_menu_right_mininum_scale), side_menu_right_mininum_scale+(1.0-offset)*(1.0-side_menu_right_mininum_scale));
+        CGAffineTransform transform2=CGAffineTransformScale(CGAffineTransformIdentity,side_menu_right_mininum_scale+offset*(1.0-side_menu_right_mininum_scale),side_menu_right_mininum_scale+offset*(1.0-side_menu_right_mininum_scale));
         CGAffineTransform transform=CGAffineTransformConcat(transform1, transform2);
         _rightViewController.view.transform=transform;
-        _rightViewController.view.alpha=side_menu_rigth_mininum_alpha+(1-side_menu_rigth_mininum_alpha)*(1.0-offset);
+        _rightViewController.view.alpha=side_menu_rigth_mininum_alpha+(1.0-side_menu_rigth_mininum_alpha)*offset;
     }
 }
 #pragma mark-

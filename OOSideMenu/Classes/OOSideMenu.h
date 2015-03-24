@@ -17,7 +17,7 @@ typedef enum{
  *  UIViewController category
  */
 @interface UIViewController (OOSideMenu)
-@property (strong, readonly, nonatomic) OOSideMenu *ooSideMenuViewController;
+@property (strong, readonly, nonatomic) OOSideMenu *ooSideMenu;
 
 -(void)setSideMenuSide:(OOSideMenuSide)side;
 

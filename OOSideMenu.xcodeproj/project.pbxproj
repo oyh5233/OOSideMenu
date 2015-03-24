@@ -14,6 +14,7 @@
 		CF33C73A1AC0F4D600CC8719 /* OOSideMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF33C7391AC0F4D600CC8719 /* OOSideMenuTests.m */; };
 		CF33C7451AC0F52A00CC8719 /* OOSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CF33C7441AC0F52A00CC8719 /* OOSideMenu.m */; };
 		CF33C7491AC0F8F600CC8719 /* UIColor+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = CF33C7481AC0F8F600CC8719 /* UIColor+Gradient.m */; };
+		CFDEE9451AC1905200522BA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDEE9441AC1905200522BA5 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 		CF33C7441AC0F52A00CC8719 /* OOSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OOSideMenu.m; path = classes/OOSideMenu.m; sourceTree = "<group>"; };
 		CF33C7471AC0F8F600CC8719 /* UIColor+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Gradient.h"; sourceTree = "<group>"; };
 		CF33C7481AC0F8F600CC8719 /* UIColor+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Gradient.m"; sourceTree = "<group>"; };
+		CFDEE9431AC1905200522BA5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CFDEE9441AC1905200522BA5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 		CF33C71C1AC0F4D600CC8719 /* OOSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				CFDEE9421AC1903900522BA5 /* viewControllers */,
 				CF33C7461AC0F8BA00CC8719 /* Classes */,
 				CF33C7211AC0F4D600CC8719 /* AppDelegate.h */,
 				CF33C7221AC0F4D600CC8719 /* AppDelegate.m */,
@@ -127,6 +131,15 @@
 				CF33C7441AC0F52A00CC8719 /* OOSideMenu.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		CFDEE9421AC1903900522BA5 /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFDEE9431AC1905200522BA5 /* ViewController.h */,
+				CFDEE9441AC1905200522BA5 /* ViewController.m */,
+			);
+			path = viewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +245,7 @@
 				CF33C7201AC0F4D600CC8719 /* main.m in Sources */,
 				CF33C7451AC0F52A00CC8719 /* OOSideMenu.m in Sources */,
 				CF33C7491AC0F8F600CC8719 /* UIColor+Gradient.m in Sources */,
+				CFDEE9451AC1905200522BA5 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

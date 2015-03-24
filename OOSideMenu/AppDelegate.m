@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "OOSideMenu.h"
+#import "ViewController.h"
 #import "UIColor+Gradient.h"
 @interface AppDelegate ()
 
@@ -20,10 +21,15 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     NSMutableArray *vCtrls=[NSMutableArray array];
     for(int i=0;i<3;i++){
-        UIViewController *ctrl=[[UIViewController alloc]init];
+        ViewController *ctrl=[[ViewController alloc]init];
         [vCtrls addObject:ctrl];
-        if(i==1){
-            ctrl.view.backgroundColor=[UIColor whiteColor];
+        if (i==0) {
+            
+        }else if(i==1){
+            ctrl.backgroundColor=[UIColor redColor];
+            ctrl.alignment=NSTextAlignmentCenter;
+        }else if(i==2){
+            ctrl.alignment=NSTextAlignmentRight;
         }
     }
     OOSideMenu *menu=[[OOSideMenu alloc]initWithCenterViewController:[[UINavigationController alloc]initWithRootViewController:[vCtrls objectAtIndex:1]] leftViewController:[vCtrls objectAtIndex:0] rightViewController:[vCtrls objectAtIndex:2]];
