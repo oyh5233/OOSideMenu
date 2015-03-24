@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'OOSideMenu'
-  s.version      = '0.0.1'
+  s.version      = '0.0.2'
   s.summary      = 'a side menu,easy to use and custom.'
   s.ios.deployment_target = "7.0"
   s.homepage     = 'https://github.com/oyh5233/OOSideMenu'
