@@ -26,7 +26,7 @@ a side menu,easy to use.
 
 
 
-pod search OOSideMenu, '~> 0.0.1'
+pod search OOSideMenu, '~> 0.0.2'
 #### License
 
 
