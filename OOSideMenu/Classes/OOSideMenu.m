@@ -36,9 +36,9 @@ static CGSize  side_menu_center_shadow_offset=(CGSize){0,0};
 static CGFloat side_menu_center_shadow_radius=5;
 static CGFloat side_menu_left_mininum_scale=0.8;
 static CGFloat side_menu_left_mininum_alpha=0.5;
+static CGFloat side_menu_left_parallax=0.15;
 static CGFloat side_menu_right_mininum_scale=0.8;
 static CGFloat side_menu_rigth_mininum_alpha=0.5;
-static CGFloat side_menu_left_parallax=0.15;
 static CGFloat side_menu_right_parallax=0.15;
 @interface OOSideMenu ()<UIScrollViewDelegate>
 @property(nonatomic,strong)UIButton *hideButton;
@@ -91,13 +91,13 @@ static CGFloat side_menu_right_parallax=0.15;
     _hideButton.autoresizingMask=UIViewAutoresizingNone;
     [_hideButton addTarget:self action:@selector(setSideCenter) forControlEvents:UIControlEventTouchUpInside];
     _hideButton.hidden=YES;
-    [_scrollView addSubview:_hideButton];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     _backgroundImageView.frame=self.view.bounds;
     _scrollView.frame=self.view.bounds;
     _scrollView.contentSize=CGSizeMake(CGRectGetWidth(_scrollView.frame)*3, CGRectGetHeight(_scrollView.frame));
+    [_scrollView addSubview:_hideButton];
     [self.view addSubview:_backgroundImageView];
     [self.view addSubview:_scrollView];
     [self addObserver:self forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:NULL];
@@ -193,6 +193,9 @@ static CGFloat side_menu_right_parallax=0.15;
     [self setSide:side animal:YES];
 }
 -(void)setSide:(OOSideMenuSide)side animal:(BOOL)animal{
+    /**
+     *  refresh status bar style
+     */
     [self setNeedsStatusBarAppearanceUpdate];
     [_scrollView setContentOffset:CGPointMake(CGRectGetWidth(_scrollView.frame)*side, 0) animated:animal];
     [self scrollViewDidScroll:_scrollView];
@@ -413,7 +416,7 @@ static CGFloat side_menu_right_parallax=0.15;
 #pragma mark -
 #pragma mark observer
 /**
- *  statusbar' height will change when received a call,and should layout subviews.
+ *  statusbar' height will change when iphone received a call,and should layout subviews.
  *
  *  @param extraHeight statusbar's extra-height
  */
